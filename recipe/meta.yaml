@@ -21,7 +21,7 @@ requirements:
   host:
     - howardhinnant_date >=3,<4
   run:
-    - howardinnant_date >=3,<4
+    - howardhinnant_date >=3,<4
 
 test:
   commands:
