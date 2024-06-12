@@ -1,5 +1,5 @@
 {% set name = "sparrow" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/xtensor-stack/sparrow/archive/{{ version }}.tar.gz
-  sha256: 72ee4838388666eda4b557c5340af40d4f0c7d1d230ea230e256e4df1e0cab13
+  sha256: 06f833cb3ada1f25edff912daf66c92d5ec5c8086f93bb085cb658e6f9db18d2
 
 build:
   number: 0
@@ -15,8 +15,13 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - cmake
     - make  # [unix]
+  host:
+    - howardhinnant_date >=3,<4
+  run:
+    - howardinnant_date >=3,<4
 
 test:
   commands:
