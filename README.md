@@ -3,13 +3,13 @@ About sparrow-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sparrow-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/xtensor-stack/sparrow
+Home: https://github.com/man-group/sparrow
 
 Package license: Apache-2.0
 
 Summary: C++20 idiomatic APIs for the Apache Arrow Columnar Format
 
-Development: https://github.com/xtensor-stack/sparrow
+Development: https://github.com/man-group/sparrow
 
 C++20 idiomatic APIs for the Apache Arrow Columnar Format
 
