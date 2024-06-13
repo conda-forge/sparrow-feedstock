@@ -21,7 +21,7 @@ requirements:
   host:
     - howardhinnant_date >=3,<4
   run:
-    - howardhinnant_date >=3,<4
+    # howardhinnant_date has run_exports
 
 test:
   commands:
@@ -42,8 +42,8 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  home: https://github.com/xtensor-stack/sparrow
-  dev_url: https://github.com/xtensor-stack/sparrow
+  home: https://github.com/man-group/sparrow
+  dev_url: https://github.com/man-group/sparrow
 
 extra:
   recipe-maintainers:
