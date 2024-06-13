@@ -1,13 +1,13 @@
 {% set name = "sparrow" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/xtensor-stack/sparrow/archive/{{ version }}.tar.gz
-  sha256: 72ee4838388666eda4b557c5340af40d4f0c7d1d230ea230e256e4df1e0cab13
+  url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
+  sha256: 06f833cb3ada1f25edff912daf66c92d5ec5c8086f93bb085cb658e6f9db18d2
 
 build:
   number: 0
@@ -15,8 +15,13 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - cmake
     - make  # [unix]
+  host:
+    - howardhinnant_date >=3,<4
+  run:
+    # howardhinnant_date has run_exports
 
 test:
   commands:
@@ -37,8 +42,8 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  home: https://github.com/xtensor-stack/sparrow
-  dev_url: https://github.com/xtensor-stack/sparrow
+  home: https://github.com/man-group/sparrow
+  dev_url: https://github.com/man-group/sparrow
 
 extra:
   recipe-maintainers:
