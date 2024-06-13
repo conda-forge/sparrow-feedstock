@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/xtensor-stack/sparrow/archive/{{ version }}.tar.gz
+  url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
   sha256: 06f833cb3ada1f25edff912daf66c92d5ec5c8086f93bb085cb658e6f9db18d2
 
 build:
