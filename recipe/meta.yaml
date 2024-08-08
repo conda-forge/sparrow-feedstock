@@ -25,13 +25,13 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/include/sparrow/buffer.hpp                                           # [unix]
-    - test -f ${PREFIX}/include/sparrow/sparrow_version.hpp                                  # [unix]
+    - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp                                    # [unix]
+    - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp                           # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake                              # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake                       # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake                             # [unix]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer.hpp (exit 1)                      # [win]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\sparrow_version.hpp (exit 1)             # [win]
+    - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)               # [win]
+    - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)      # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)         # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)  # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
