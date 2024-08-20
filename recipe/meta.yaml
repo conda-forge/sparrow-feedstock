@@ -1,5 +1,5 @@
 {% set name = "sparrow" %}
-{% set version = "0.0.2" %}
+{% set version = "0.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
-  sha256: 06f833cb3ada1f25edff912daf66c92d5ec5c8086f93bb085cb658e6f9db18d2
+  sha256: 36b837f354b4a35c6445575dac4c7483efa16af60230c7412cad91bef2411e7d
 
 build:
   number: 0
@@ -25,13 +25,13 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/include/sparrow/buffer.hpp                                           # [unix]
-    - test -f ${PREFIX}/include/sparrow/sparrow_version.hpp                                  # [unix]
+    - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp                                    # [unix]
+    - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp                           # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake                              # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake                       # [unix]
     - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake                             # [unix]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer.hpp (exit 1)                      # [win]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\sparrow_version.hpp (exit 1)             # [win]
+    - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)               # [win]
+    - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)      # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)         # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)  # [win]
     - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
