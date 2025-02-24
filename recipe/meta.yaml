@@ -1,5 +1,5 @@
 {% set name = "sparrow" %}
-{% set version = "0.2.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
-  sha256: 07c0220cff5e37d2c7981bc57f1bddb88a3b3c2de75ccea284b57ca0310236cc
+  sha256: af831107922cc1a86452aeb43bfc2a848009f13bbc657f451bad1dcca041073e
 
 build:
   number: 0
