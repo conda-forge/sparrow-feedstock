@@ -1,3 +1,5 @@
+bot:
+  auto_merge: true
 github:
   branch_name: main
   tooling_branch_name: main
