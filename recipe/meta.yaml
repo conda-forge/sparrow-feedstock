@@ -10,7 +10,9 @@ source:
   sha256: f8bd0b19d5e76dc972385a4263e5db0cded63d326dfb0cd57c3ad9f2f6dea570
 
 build:
-  number: 0
+  number: 1
+  run_exports:
+    - {{ pin_subpackage('sparrow', max_pin='x.x') }}
 
 requirements:
   build:
