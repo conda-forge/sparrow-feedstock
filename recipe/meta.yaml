@@ -1,7 +1,5 @@
 {% set name = "sparrow-split" %}
 {% set version = "1.1.0" %}
-{% set build_number = 1 %}
-
 
 package:
   name: {{ name }}
@@ -20,7 +18,7 @@ source:
   sha256: 118feef83085efe362001d9f545c88d8a1518b9036b8641ca1142c182f58dc6f
 
 build:
-  number: ${{ build_number }}
+  number: 1
 
 outputs:
   - name: sparrow
