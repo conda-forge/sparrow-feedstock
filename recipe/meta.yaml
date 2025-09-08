@@ -19,7 +19,7 @@ source:
 outputs:
   - package:
       name: {{ name|lower }}
-      
+
     requirements:
       run_exports:
         - {{ pin_subpackage('sparrow', max_pin='x.x') }}
@@ -47,13 +47,11 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
   
   - package:
-      name: {{ name|lower }}-dev
+      name: {{ name|lower }}_dev
 
     build:
-      number: 0
-      skip: true  # [win]
       run_exports:
-        - {{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
+        - {{ pin_subpackage('sparrow_dev', max_pin='x.x') }}
 
     requirements:
       build:
