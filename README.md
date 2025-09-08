@@ -1,5 +1,5 @@
-About sparrow-feedstock
-=======================
+About sparrow-split-feedstock
+=============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sparrow-feedstock/blob/main/LICENSE.txt)
 
@@ -72,27 +72,28 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-sparrow-green.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-sparrow--dev-green.svg)](https://anaconda.org/conda-forge/sparrow-dev) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sparrow-dev.svg)](https://anaconda.org/conda-forge/sparrow-dev) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sparrow-dev.svg)](https://anaconda.org/conda-forge/sparrow-dev) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sparrow-dev.svg)](https://anaconda.org/conda-forge/sparrow-dev) |
 
-Installing sparrow
-==================
+Installing sparrow-split
+========================
 
-Installing `sparrow` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `sparrow-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `sparrow` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `sparrow, sparrow-dev` can be installed with `conda`:
 
 ```
-conda install sparrow
+conda install sparrow sparrow-dev
 ```
 
 or with `mamba`:
 
 ```
-mamba install sparrow
+mamba install sparrow sparrow-dev
 ```
 
 It is possible to list all of the versions of `sparrow` available on your platform with `conda`:
@@ -162,17 +163,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating sparrow-feedstock
-==========================
+Updating sparrow-split-feedstock
+================================
 
-If you would like to improve the sparrow recipe or build a new
+If you would like to improve the sparrow-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/sparrow-feedstock are
+Note that all branches in the conda-forge/sparrow-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
