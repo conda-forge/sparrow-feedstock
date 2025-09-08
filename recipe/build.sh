@@ -5,8 +5,7 @@ if [[ "$PKG_NAME" == "sparrow" ]]; then
             -DCMAKE_INSTALL_PREFIX=$PREFIX \
             -DCMAKE_INSTALL_LIBDIR=lib \
             $SRC_DIR
-fi
-if [[ "$PKG_NAME" == "sparrow-dev" ]]; then
+elif [[ "$PKG_NAME" == "sparrow-dev" ]]; then
       cmake ${CMAKE_ARGS} -DBUILD_TESTS=OFF \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_INSTALL_LIBDIR=lib \
