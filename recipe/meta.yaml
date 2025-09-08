@@ -1,42 +1,79 @@
 {% set name = "sparrow" %}
 {% set version = "1.1.0" %}
 
-package:
-  name: {{ name|lower }}
-  version: {{ version }}
-
 source:
   url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
   sha256: 118feef83085efe362001d9f545c88d8a1518b9036b8641ca1142c182f58dc6f
 
-build:
-  number: 0
-  run_exports:
-    - {{ pin_subpackage('sparrow', max_pin='x.x') }}
+outputs:
+  - package:
+      name: {{ name|lower }}
+      version: {{ version }}
 
-requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - {{ stdlib('c') }}
-    - cmake
-    - make  # [unix]
-  host:
-    - howardhinnant_date >=3,<4
-  run:
-    # howardhinnant_date has run_exports
+    build:
+      number: 0
+      run_exports:
+        - {{ pin_subpackage('sparrow', max_pin='x.x') }}
 
-test:
-  commands:
-    - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp                                    # [unix]
-    - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp                           # [unix]
-    - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake                              # [unix]
-    - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake                       # [unix]
-    - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake                             # [unix]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)               # [win]
-    - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)      # [win]
-    - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)         # [win]
-    - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)  # [win]
-    - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
+        - cmake
+        - make  # [unix]
+      host:
+        - howardhinnant_date >=3,<4
+      run:
+        # howardhinnant_date has run_exports
+
+    test:
+      commands:
+        - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp                                    # [unix]
+        - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp                           # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake                              # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake                       # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake                             # [unix]
+        - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)               # [win]
+        - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)      # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)         # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)  # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
+  
+  - package:
+      name: {{ name|lower }}-dev
+      version: {{ version }}
+
+    build:
+      number: 0
+      skip: true  # [win]
+      run_exports:
+        - {{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
+
+    requirements:
+      build:
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
+        - cmake
+        - make  # [unix]
+      host:
+        - howardhinnant_date >=3,<4
+        - nlohmann_json >=3,<4
+      run:
+        # howardhinnant_date has run_exports
+        - nlohmann_json >=3,<4
+
+    test:
+      commands:
+        - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp                                    # [unix]
+        - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp                           # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake                              # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake                       # [unix]
+        - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake                             # [unix]
+        - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)               # [win]
+        - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)      # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)         # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)  # [win]
+        - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)        # [win]
 
 about:
   summary: C++20 idiomatic APIs for the Apache Arrow Columnar Format
