@@ -24,10 +24,10 @@ outputs:
   - name: sparrow
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow', max_pin='x.x') }}
+        - {{ pin_subpackage('sparrow', max_pin='x.x') }}
       build:
-        - ${{ compiler('cxx') }}
-        - ${{ stdlib('c') }}
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
         - cmake
         - make  # [unix]
       host:
@@ -51,10 +51,10 @@ outputs:
   - name: sparrow-dev
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
+        - {{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
       build:
-        - ${{ compiler('cxx') }}
-        - ${{ stdlib('c') }}
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
         - cmake
         - make  # [unix]
       host:
@@ -62,7 +62,7 @@ outputs:
         - nlohmann_json >=3,<4
       run:
         # howardhinnant_date has run_exports
-        - ${{ pin_compatible('nlohmann_json', upper_bound='x.x.x') }}
+        - {{ pin_compatible('nlohmann_json', upper_bound='x.x.x') }}
 
     test:
       commands:
