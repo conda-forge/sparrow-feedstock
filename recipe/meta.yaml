@@ -1,6 +1,6 @@
 context:
   version: "1.1.0"
-  build_number: 0
+  build_number: 1
 
 recipe:
   name: sparrow-split
@@ -44,11 +44,9 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1) # [win]
 
   - package:
-      name: sparrow_dev
-
-    build:
+      name: sparrow-dev
       run_exports:
-        - { { pin_subpackage('sparrow_dev', max_pin='x.x') } }
+        - { { pin_subpackage('sparrow-dev', max_pin='x.x') } }
 
     requirements:
       build:
@@ -75,6 +73,8 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1) # [win]
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1) # [win]
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1) # [win]
+        - test -f ${PREFIX}/json_reader/include/sparrow/json_reader/json_parser.hpp # [unix]
+        - if not exist %LIBRARY_PREFIX%\json_reader\include\sparrow\json_reader\json_parser.hpp (exit 1) # [win]
 
 about:
   summary: C++20 idiomatic APIs for the Apache Arrow Columnar Format
