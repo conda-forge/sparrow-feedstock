@@ -5,14 +5,6 @@ package:
   name: {{ name }}
   version: {{ version }}
 
-#context:
-  #version: "1.1.0"
-  #build_number: 1
-
-#recipe:
-  #name: sparrow-split
-  #version: ${{ version }}
-
 source:
   url: https://github.com/man-group/sparrow/archive/{{ version }}.tar.gz
   sha256: 118feef83085efe362001d9f545c88d8a1518b9036b8641ca1142c182f58dc6f
@@ -23,8 +15,6 @@ build:
 outputs:
   - name: sparrow
     version: {{ version }}
-    script: build.sh  # [unix]
-    script: bld.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage('sparrow', max_pin='x.x') }}
@@ -54,8 +44,6 @@ outputs:
 
   - name: sparrow-dev
     version: {{ version }}
-    script: build.sh  # [unix]
-    script: bld.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
