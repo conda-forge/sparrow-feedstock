@@ -25,8 +25,8 @@ requirements:
       then: make
   host:
     - howardhinnant_date >=3,<4
-  run:
-    # howardhinnant_date has run_exports
+  #run:
+    ## howardhinnant_date has run_exports
 
 tests:
   - script:
