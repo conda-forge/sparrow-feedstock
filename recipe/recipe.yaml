@@ -21,7 +21,8 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
     - cmake
-    - make  # [unix]
+    - if: unix
+      then: make
   host:
     - howardhinnant_date >=3,<4
   run:
