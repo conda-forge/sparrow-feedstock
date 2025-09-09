@@ -22,6 +22,9 @@ build:
 
 outputs:
   - name: sparrow
+    version: {{ version }}
+    script: build.sh  # [unix]
+    script: bld.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage('sparrow', max_pin='x.x') }}
@@ -50,6 +53,9 @@ outputs:
         - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)  # [win]
 
   - name: sparrow-dev
+    version: {{ version }}
+    script: build.sh  # [unix]
+    script: bld.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage('sparrow-dev', max_pin='x.x') }}
