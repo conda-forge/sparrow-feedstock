@@ -65,9 +65,11 @@ outputs:
       host:
         - howardhinnant_date >=3,<4
         - nlohmann_json >=3,<4
+        - ${{ pin_subpackage('sparrow', exact=True) }}
       run:
         # howardhinnant_date has run_exports
         - ${{ pin_compatible('nlohmann_json', upper_bound='x.x.x') }}
+        - ${{ pin_subpackage('sparrow', exact=True) }}
     tests:
       - script:
         - if: unix
