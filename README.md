@@ -11,6 +11,8 @@ Summary: C++20 idiomatic APIs for the Apache Arrow Columnar Format
 
 Development: https://github.com/man-group/sparrow
 
+Documentation: https://man-group.github.io/sparrow
+
 C++20 idiomatic APIs for the Apache Arrow Columnar Format
 
 Current build status
@@ -72,6 +74,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-sparrow-green.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sparrow.svg)](https://anaconda.org/conda-forge/sparrow) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-sparrow--devel-green.svg)](https://anaconda.org/conda-forge/sparrow-devel) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/sparrow-devel.svg)](https://anaconda.org/conda-forge/sparrow-devel) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/sparrow-devel.svg)](https://anaconda.org/conda-forge/sparrow-devel) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/sparrow-devel.svg)](https://anaconda.org/conda-forge/sparrow-devel) |
 
 Installing sparrow
 ==================
@@ -83,16 +86,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `sparrow` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `sparrow, sparrow-devel` can be installed with `conda`:
 
 ```
-conda install sparrow
+conda install sparrow sparrow-devel
 ```
 
 or with `mamba`:
 
 ```
-mamba install sparrow
+mamba install sparrow sparrow-devel
 ```
 
 It is possible to list all of the versions of `sparrow` available on your platform with `conda`:
