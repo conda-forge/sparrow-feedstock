@@ -1,6 +1,6 @@
 context:
   version: "1.1.2"
-  build_number: 1
+  build_number: 2
 
 recipe:
   name: sparrow-packages
@@ -29,6 +29,7 @@ outputs:
         - if: win
           then:
             - Library/bin/sparrow.dll
+            - Library/lib/sparrow.lib
     requirements:
       run_exports:
         - ${{ pin_subpackage('sparrow', upper_bound='x.x') }}
@@ -50,6 +51,7 @@ outputs:
         - if: win
           then:
             - if not exist %LIBRARY_PREFIX%\bin\sparrow.dll (exit 1)
+            - if not exist %LIBRARY_PREFIX%\lib\sparrow.lib (exit 1)
 
   - package:
       name: sparrow-devel
@@ -72,6 +74,7 @@ outputs:
             - Library/include/
             - Library/share/cmake/
             - Library/bin/sparrow_json_reader.dll
+            - Library/lib/sparrow_json_reader.lib
     requirements:
       run_exports:
         - ${{ pin_subpackage('sparrow-devel', upper_bound='x.x') }}
@@ -109,6 +112,7 @@ outputs:
             - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)
             - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
             - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
+            - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
             - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
             - findstr "sparrow::json_reader" %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake || (exit 1)
 
