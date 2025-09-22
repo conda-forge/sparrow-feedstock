@@ -10,4 +10,4 @@ cmake ${CMAKE_ARGS} \
     -DCREATE_JSON_READER_TARGET=ON \
     $SRC_DIR
 
-make install
+make -j${CPU_COUNT} install
