@@ -1,6 +1,6 @@
 context:
   version: "1.1.2"
-  build_number: 4
+  build_number: 5
 
 recipe:
   name: sparrow-packages
@@ -77,7 +77,7 @@ outputs:
             - Library/lib/sparrow_json_reader.lib
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow-devel', upper_bound='x.x') }}
+        - ${{ pin_subpackage('sparrow', upper_bound='x.x') }}
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
@@ -89,9 +89,8 @@ outputs:
         - nlohmann_json >=3,<4
         - nlohmann_json-abi
         - ${{ pin_subpackage('sparrow', exact=True) }}
-      run:
+      #run:
         # howardhinnant_date has run_exports
-        # sparrow has run_exports
     tests:
       - script:
         - if: unix
