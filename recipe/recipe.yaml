@@ -41,7 +41,7 @@ outputs:
           then: make
       host:
         - howardhinnant_date >=3,<4
-      run:
+      #run:
         # howardhinnant_date has run_exports
     tests:
       - script:
@@ -89,7 +89,7 @@ outputs:
         - nlohmann_json >=3,<4
         - nlohmann_json-abi
         - ${{ pin_subpackage('sparrow', exact=True) }}
-      run:
+      #run:
         # howardhinnant_date has run_exports
     tests:
       - script:
