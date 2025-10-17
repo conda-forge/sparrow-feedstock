@@ -1,5 +1,5 @@
 context:
-  version: "1.2.0"
+  version: "1.3.0"
   build_number: 0
 
 recipe:
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://github.com/man-group/sparrow/archive/${{ version }}.tar.gz
-  sha256: 4656cce374687f656ada6cd088d8ccd228ddbb26c2c457a68967eb6062fa874a
+  sha256: 2b880f63cdff9dd43231f9d5935fe456f9588917fd5760bc33e849c784a1666c
 
 build:
   number: ${{ build_number }}
@@ -47,13 +47,13 @@ outputs:
         # howardhinnant_date has run_exports
     tests:
       - script:
-        - if: unix
-          then:
-            - test -f ${PREFIX}/lib/libsparrow${SHLIB_EXT}
-        - if: win
-          then:
-            - if not exist %LIBRARY_PREFIX%\bin\sparrow.dll (exit 1)
-            - if not exist %LIBRARY_PREFIX%\lib\sparrow.lib (exit 1)
+          - if: unix
+            then:
+              - test -f ${PREFIX}/lib/libsparrow${SHLIB_EXT}
+          - if: win
+            then:
+              - if not exist %LIBRARY_PREFIX%\bin\sparrow.dll (exit 1)
+              - if not exist %LIBRARY_PREFIX%\lib\sparrow.lib (exit 1)
 
   - package:
       name: sparrow-devel
@@ -98,30 +98,30 @@ outputs:
         # howardhinnant_date has run_exports
     tests:
       - script:
-        - if: unix
-          then:
-            - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp
-            - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
-            - test -f ${PREFIX}/lib/libsparrow_json_reader${SHLIB_EXT}
-            - test -f ${PREFIX}/include/sparrow/json_reader/json_parser.hpp
-            - grep "sparrow::json_reader" ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
-        - if: win
-          then:
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
-            - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
-            - findstr "sparrow::json_reader" %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake || (exit 1)
-            - if not exist %LIBRARY_PREFIX%\debug\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\debug\bin\sparrow_json_reader.dll (exit 1)
-            - if not exist %LIBRARY_PREFIX%\debug\lib\sparrow_json_reader.lib (exit 1)
+          - if: unix
+            then:
+              - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp
+              - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
+              - test -f ${PREFIX}/lib/libsparrow_json_reader${SHLIB_EXT}
+              - test -f ${PREFIX}/include/sparrow/json_reader/json_parser.hpp
+              - grep "sparrow::json_reader" ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
+          - if: win
+            then:
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
+              - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
+              - findstr "sparrow::json_reader" %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake || (exit 1)
+              - if not exist %LIBRARY_PREFIX%\debug\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\debug\bin\sparrow_json_reader.dll (exit 1)
+              - if not exist %LIBRARY_PREFIX%\debug\lib\sparrow_json_reader.lib (exit 1)
 
 about:
   homepage: https://github.com/man-group/sparrow
