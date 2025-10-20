@@ -141,17 +141,17 @@ outputs:
           then:
             - test -f ${PREFIX}/include/sparrow/json_reader/json_parser.hpp
             - test -f ${PREFIX}/lib/libsparrow_json_reader${SHLIB_EXT}
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrow-json-readerConfig.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrow-json-readerConfigVersion.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrow-json-readerTargets.cmake
+            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfig.cmake
+            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfigVersion.cmake
+            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerTargets.cmake
         - if: win
           then:
             - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
             - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
             - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrow-json-readerConfig.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrow-json-readerConfigVersion.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrow-json-readerTargets.cmake (exit 1)
+            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfig.cmake (exit 1)
+            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfigVersion.cmake (exit 1)
+            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerTargets.cmake (exit 1)
 
 
 about:
