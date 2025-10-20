@@ -106,7 +106,7 @@ outputs:
     build:
       script: build
       files:
-        - ${{ "Library/" if win }}/include/sparrow/json_reader/*.hpp
+        - ${{ "Library/" if win }}include/sparrow/json_reader/*.hpp
         - if: linux
           then:
             - lib/libsparrow_json_reader.so*
