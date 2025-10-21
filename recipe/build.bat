@@ -1,6 +1,6 @@
 @echo ON
 
-if /I "%PKG_NAME%" == "sparrow" (
+if /I "%PKG_NAME%" NEQ "sparrow-json-reader" (
     cmake -B build-release/ ^
         -G "Ninja" ^
         -D CMAKE_BUILD_TYPE=Release ^
@@ -14,8 +14,6 @@ if /I "%PKG_NAME%" == "sparrow" (
     if errorlevel 1 exit 1
     cmake --install build-release/
     if errorlevel 1 exit 1
-)
-if /I "%PKG_NAME%" == "sparrow-devel" (
 
     cmake -B build-debug/ ^
         -G "Ninja" ^

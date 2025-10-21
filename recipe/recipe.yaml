@@ -67,6 +67,9 @@ outputs:
           - ${{ "Library/" if win }}share/cmake/sparrow/sparrowConfigVersion.cmake
           - ${{ "Library/" if win }}share/cmake/sparrow/sparrowTargets.cmake
           - ${{ "Library/" if win }}share/cmake/sparrow/sparrowTargets-release.cmake
+          - if: win
+            then:
+              - Library/debug
         exclude:
           - ${{ "Library/" if win }}include/sparrow/json_reader/*.hpp
     requirements:
