@@ -126,6 +126,10 @@ outputs:
           then:
             - Library/bin/sparrow_json_reader.dll
             - Library/lib/sparrow_json_reader.lib
+            - Library/debug/lib/sparrow_json_readerd.lib
+            - Library/debug/bin/sparrow_json_readerd.dll
+            - Library/debug/include/sparrow/json_reader/*.hpp
+            - Library/debug/share/cmake/sparrow-json-reader/
     requirements:
       run_exports:
         - ${{ pin_subpackage('sparrow-json-reader', upper_bound='x.x') }}
