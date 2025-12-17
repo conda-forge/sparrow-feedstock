@@ -1,5 +1,5 @@
 context:
-  version: "1.4.0"
+  version: "2.0.0"
   build_number: 0
 
 recipe:
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://github.com/man-group/sparrow/archive/${{ version }}.tar.gz
-  sha256: 6737746846510b1f1c0df4ce8a3ac7bef9e099299672115de82a3a35ea595ca8
+  sha256: e63806947384b518575f7116aff0427c0084aebbc0edde52cb47bec5fbabde9e
 
 build:
   number: ${{ build_number }}
@@ -47,13 +47,13 @@ outputs:
         # howardhinnant_date has run_exports
     tests:
       - script:
-        - if: unix
-          then:
-            - test -f ${PREFIX}/lib/libsparrow${SHLIB_EXT}
-        - if: win
-          then:
-            - if not exist %LIBRARY_PREFIX%\bin\sparrow.dll (exit 1)
-            - if not exist %LIBRARY_PREFIX%\lib\sparrow.lib (exit 1)
+          - if: unix
+            then:
+              - test -f ${PREFIX}/lib/libsparrow${SHLIB_EXT}
+          - if: win
+            then:
+              - if not exist %LIBRARY_PREFIX%\bin\sparrow.dll (exit 1)
+              - if not exist %LIBRARY_PREFIX%\lib\sparrow.lib (exit 1)
 
   - package:
       name: sparrow-devel
@@ -90,21 +90,21 @@ outputs:
         # howardhinnant_date has run_exports
     tests:
       - script:
-        - if: unix
-          then:
-            - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp
-            - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets-release.cmake
-        - if: win
-          then:
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
+          - if: unix
+            then:
+              - test -f ${PREFIX}/include/sparrow/buffer/buffer.hpp
+              - test -f ${PREFIX}/include/sparrow/config/sparrow_version.hpp
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfig.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowConfigVersion.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow/sparrowTargets-release.cmake
+          - if: win
+            then:
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\buffer\buffer.hpp (exit 1)
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\config\sparrow_version.hpp (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfig.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowConfigVersion.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow\sparrowTargets.cmake (exit 1)
   - package:
       name: sparrow-json-reader
       version: ${{ version }}
@@ -150,23 +150,23 @@ outputs:
         # howardhinnant_date has run_exports
     tests:
       - script:
-        - if: unix
-          then:
-            - test -f ${PREFIX}/include/sparrow/json_reader/json_parser.hpp
-            - test -f ${PREFIX}/lib/libsparrow_json_reader${SHLIB_EXT}
-            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfig.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfigVersion.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerTargets.cmake
-            - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerTargets-release.cmake
-        - if: win
-          then:
-            - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
-            - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
-            - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfig.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfigVersion.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerTargets.cmake (exit 1)
-            - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerTargets-release.cmake (exit 1)
+          - if: unix
+            then:
+              - test -f ${PREFIX}/include/sparrow/json_reader/json_parser.hpp
+              - test -f ${PREFIX}/lib/libsparrow_json_reader${SHLIB_EXT}
+              - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfig.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerConfigVersion.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerTargets.cmake
+              - test -f ${PREFIX}/share/cmake/sparrow-json-reader/sparrow-json-readerTargets-release.cmake
+          - if: win
+            then:
+              - if not exist %LIBRARY_PREFIX%\include\sparrow\json_reader\json_parser.hpp (exit 1)
+              - if not exist %LIBRARY_PREFIX%\bin\sparrow_json_reader.dll (exit 1)
+              - if not exist %LIBRARY_PREFIX%\lib\sparrow_json_reader.lib (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfig.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerConfigVersion.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerTargets.cmake (exit 1)
+              - if not exist %LIBRARY_PREFIX%\share\cmake\sparrow-json-reader\sparrow-json-readerTargets-release.cmake (exit 1)
 
 
 about:
