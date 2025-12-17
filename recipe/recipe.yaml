@@ -1,5 +1,5 @@
 context:
-  version: "1.4.0"
+  version: "2.0.0"
   build_number: 0
 
 recipe:
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://github.com/man-group/sparrow/archive/${{ version }}.tar.gz
-  sha256: 6737746846510b1f1c0df4ce8a3ac7bef9e099299672115de82a3a35ea595ca8
+  sha256: 7a08c6c7d4c87bf9e5fd91adcd41965ae0fa8f484cb975956bc917581ee78585
 
 build:
   number: ${{ build_number }}
@@ -42,7 +42,8 @@ outputs:
         - if: win
           then: ninja
       host:
-        - howardhinnant_date >=3,<4
+        - if: unix
+          then: howardhinnant_date >=3,<4
       #run:
         # howardhinnant_date has run_exports
     tests:

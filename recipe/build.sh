@@ -9,6 +9,7 @@ if [[ $PKG_NAME == "sparrow-json-reader" ]]; then
         -DCMAKE_INSTALL_PREFIX=$PREFIX \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DCREATE_JSON_READER_TARGET=ON \
+        -DUSE_DATE_POLYFILL=ON \
         $SRC_DIR
 else
     cmake ${CMAKE_ARGS} \
@@ -17,6 +18,7 @@ else
         -DCMAKE_INSTALL_PREFIX=$PREFIX \
         -DCMAKE_INSTALL_LIBDIR=lib \
         -DCREATE_JSON_READER_TARGET=OFF \
+        -DUSE_DATE_POLYFILL=ON \
         $SRC_DIR
 fi
 
