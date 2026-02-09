@@ -1,5 +1,5 @@
 context:
-  version: "2.2.1"
+  version: "2.3.0"
   build_number: 0
 
 recipe:
@@ -8,7 +8,7 @@ recipe:
 
 source:
   url: https://github.com/man-group/sparrow/archive/${{ version }}.tar.gz
-  sha256: 168d601e66919be35dd556a30e3047b3b42d9002d4d0271f848633be392599bf
+  sha256: 2d43e256caacbf5f53277dbc4a202faff5476c3588ea1274a20b8670eef5dafa
 
 build:
   number: ${{ build_number }}
@@ -185,3 +185,4 @@ extra:
     - jjerphan
     - JohanMabille
     - Klaim
+    - Alex-PLACET
