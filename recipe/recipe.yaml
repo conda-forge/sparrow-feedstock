@@ -1,6 +1,6 @@
 context:
   version: "2.4.0"
-  build_number: 0
+  build_number: 1
 
 recipe:
   name: sparrow-packages
@@ -32,7 +32,7 @@ outputs:
             - Library/lib/sparrow.lib
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow', upper_bound='x.x') }}
+        - ${{ pin_subpackage('sparrow', exact=True) }}
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
@@ -75,7 +75,7 @@ outputs:
           - ${{ "Library/" if win }}include/sparrow/json_reader/*.hpp
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow', upper_bound='x.x') }}
+        - ${{ pin_subpackage('sparrow', exact=True) }}
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
@@ -133,7 +133,7 @@ outputs:
             - Library/debug/share/cmake/sparrow-json-reader/
     requirements:
       run_exports:
-        - ${{ pin_subpackage('sparrow-json-reader', upper_bound='x.x') }}
+        - ${{ pin_subpackage('sparrow-json-reader', exact=True) }}
       build:
         - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
